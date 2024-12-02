@@ -4,12 +4,27 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 
+# Función para simular lanzamientos de dados
+def lanzar_dados():
+    return [random.randint(1, 6) for _ in range(20)]
+
 # Título de la app
 st.title("Simulación de lanzamiento de un dado")
 
-# Simular los 20 lanzamientos
+# Autor de la aplicación
+st.markdown("**Autor:** Esta app fue elaborada por Joseph Vargas")
+
+# Manejo del estado de los lanzamientos
+if "rolls" not in st.session_state:
+    st.session_state.rolls = lanzar_dados()
+
+# Botón para reiniciar los lanzamientos
+if st.button("Reiniciar lanzamientos"):
+    st.session_state.rolls = lanzar_dados()
+
+# Mostrar los lanzamientos
 st.header("Lanzamientos")
-rolls = [random.randint(1, 6) for _ in range(20)]
+rolls = st.session_state.rolls
 st.write("Resultados de los lanzamientos:")
 st.write(rolls)
 
