@@ -6,6 +6,7 @@ from scipy import stats
 
 # Título de la app
 st.title("Simulación de lanzamiento de un dado")
+st.markdown("**Autor:** Esta app fue elaborada por Joseph Vargas")
 
 # Simular los 20 lanzamientos
 st.header("Lanzamientos")
